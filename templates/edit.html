@@ -1,31 +1,22 @@
 {% extends "template.html" %}
 {% block conteudo %}
-      <form action="{{ url_for('atualizar') }}" method="post" enctype="multipart/form-data">
-        <figure class="thumb col-md-4">
-            <img class="img-responsive" src="{{ url_for('imagem', nome_arquivo=capa_jogo) }}">
-            <figcaption>
-                <label class="fileContainer">
-                    Mudar capa
-                    <input type="file" name="arquivo" accept=".jpg">
-                </label>
-            </figcaption>
-        </figure>
-        <input type="hidden" name="id" value="{{ jogo.id }}">
+      <form action="{{ url_for('update') }}" method="post" >
+        <input type="hidden" name="id_planet" value="{{ planet['id_planet'] }}">
         <fieldset>
           <div class="form-group">
-            <label for="nome">Nome</label>
-            <input type="text" id="nome" name="nome" class="form-control" value="{{ jogo.nome }}">
+            <label for="name">Nome</label>
+            <input type="text" id="name" name="name" class="form-control" value="{{ planet['name'] }}">
           </div>
           <div class="form-group">
-            <label for="categoria">Categoria</label>
-            <input type="text" id="categoria" name="categoria" class="form-control" value="{{ jogo.categoria }}">
+            <label for="climate">Categoria</label>
+            <input type="text" id="climate" name="climate" class="form-control" value="{{ planet['climate'] }}">
           </div>
           <div class="form-group">
-            <label for="console">Console</label>
-            <input type="text" id="console" name="console" class="form-control" value="{{ jogo.console }}">
+            <label for="terrain">Console</label>
+            <input type="text" id="terrain" name="terrain" class="form-control" value="{{ planet['terrain'] }}">
           </div>
-          <button type="submit" class="btn btn-primary btn-salvar">Salvar</button>
-          <a class="btn btn-danger" href="{{ url_for('index') }}">Voltar</a>
+          <button type="submit" class="btn btn-primary btn-salvar">Save</button>
+          <a class="btn btn-danger" href="{{ url_for('index') }}">Back</a>
         </fieldset>
       </form>
 {% endblock %}
