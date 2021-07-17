@@ -1,6 +1,6 @@
 {% extends "template.html" %}
 {% block conteudo %}
-    <a class="btn btn-primary" href="{{ url_for('site_new') }}">Novo Jogo</a>
+    <a class="btn btn-primary" href="{{ url_for('new') }}">New Planet</a>
 
         <table class="table table-striped table-responsive table-bordered">
             <thead class="thead-default">
@@ -20,9 +20,9 @@
                     <td>{{ planet['climate'] }}</td>
                     <td>{{ planet['terrain'] }}</td>
                     <td>
-                        <a href="{{ url_for('read_planet_all', id_planet=planet['id_planet']) }}">Edit</a>
+                        <a href="{{ url_for('delete', id_planet=planet['id_planet']) }}">Edit</a>
                         <br>
-                        <a href="{{ url_for('site_delete', id_planet=planet['id_planet']) }}">Delete</a>
+                        <a href="{{ url_for('delete', id_planet=planet['id_planet']) }}">Delete</a>
                     </td>
                 </tr>
             {% endfor %}

@@ -7,13 +7,13 @@ import requests
 def index():
     table = requests.get('http://127.0.0.1:5000/api/planets')
     planet_list = table.json()
-    return render_template('lista.html', titulo='Jogos',
+    return render_template('index.html', titulo='Planets',
                            planets=planet_list)
 
 
 @app.route('/new')
-def site_new():
-    return render_template('novo.html', titulo='New Game')
+def new():
+    return render_template('new.html', titulo='New Planet')
 
 
 @app.route('/creat', methods=['POST', ])
@@ -29,6 +29,6 @@ def creat():
 
 
 @app.route('/delete/<string:id_planet>')
-def site_delete(id_planet):
+def delete(id_planet):
     requests.delete(f'http://127.0.0.1:5000/api/planet/{id_planet}')
     return redirect(url_for('index'))
